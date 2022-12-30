@@ -7,12 +7,13 @@ const cors = require('cors');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const { urlencoded } = require('body-parser');
+const { REACT_APP_DB_PWD, REACT_APP_DB_USER, REACT_APP_DB_HOST, REACT_APP_DB_NAME } = process.env;
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "epic-website"
+  host: REACT_APP_DB_HOST,
+  user: REACT_APP_DB_USER,
+  password: REACT_APP_DB_PWD,
+  database: REACT_APP_DB_NAME
 });
 
 app.use(cors());
